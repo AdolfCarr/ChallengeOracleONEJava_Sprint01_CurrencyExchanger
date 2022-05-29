@@ -134,7 +134,7 @@ public class SelectProgram extends javax.swing.JFrame {
 
         if (programSelected.equals("Currency Convertion")) {
             this.toBack();
-            currencyConverter cc = new currencyConverter();
+            CurrencyConverter cc = new CurrencyConverter();
             cc.setVisible(true);
             cc.toFront();
         } else if (programSelected.equals("Temperature Convertion")) {
