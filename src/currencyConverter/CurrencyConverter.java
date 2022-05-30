@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  */
 public class CurrencyConverter extends javax.swing.JFrame {
 
-    String[] unitsConvertion = {"Choose one...", "Mexican Peso", "USA Dollar", "Euro", "Sterling Pound", "Japanise Yen", "South-Korea Won"};
+    String[] unitsConvertion = {"Choose one...", "USA Dollar", "Euro", "Sterling Pound", "Japanise Yen", "South-Korea Won"};
 
     /**
      * Creates new form currencyConverter
@@ -37,34 +37,34 @@ public class CurrencyConverter extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTextFieldCurrencyToExchange = new javax.swing.JTextField();
-        jComboBoxToUnitCurrency = new javax.swing.JComboBox<>();
+        jTextFieldAmountCurrencyToExchange = new javax.swing.JTextField();
+        jComboBoxExchangeToUnitCurrency = new javax.swing.JComboBox<>();
         jLabelCurrencyConvertion = new javax.swing.JLabel();
         jLabelHelpCurrencyConvertion = new javax.swing.JLabel();
         jButtonPrevWindow = new javax.swing.JButton();
         jButtonRunCurrencyConverter = new javax.swing.JButton();
         jLabelFromUnitCurrency = new javax.swing.JLabel();
-        jTextFieldCurrencyExchanged = new javax.swing.JTextField();
+        jTextFieldAmountCurrencyExchanged = new javax.swing.JTextField();
         jLabelToUnitCurrency = new javax.swing.JLabel();
         jLabelUnitCurrencyExchanged = new javax.swing.JLabel();
         jLabelUnitCurrencyEntered = new javax.swing.JLabel();
-        jTextFieldCurrencyExchanged1 = new javax.swing.JTextField();
+        jTextFieldExchangeFromCurrencyTo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
 
-        jTextFieldCurrencyToExchange.setText("Enter Value");
-        jTextFieldCurrencyToExchange.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextFieldAmountCurrencyToExchange.setText("Enter Value");
+        jTextFieldAmountCurrencyToExchange.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldCurrencyToExchangeFocusGained(evt);
+                jTextFieldAmountCurrencyToExchangeFocusGained(evt);
             }
         });
 
-        jComboBoxToUnitCurrency.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose One...", "USA Dollar", "Euro", "Sterling Pound", "Japanise Yen", "South-Korea Won " }));
-        jComboBoxToUnitCurrency.addItemListener(new java.awt.event.ItemListener() {
+        jComboBoxExchangeToUnitCurrency.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose One...", "USA Dollar", "Euro", "Sterling Pound", "Japanise Yen", "South-Korean Won" }));
+        jComboBoxExchangeToUnitCurrency.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBoxToUnitCurrencyItemStateChanged(evt);
+                jComboBoxExchangeToUnitCurrencyItemStateChanged(evt);
             }
         });
 
@@ -102,8 +102,7 @@ public class CurrencyConverter extends javax.swing.JFrame {
         jLabelFromUnitCurrency.setForeground(new java.awt.Color(255, 255, 255));
         jLabelFromUnitCurrency.setText("From Currency Of");
 
-        jTextFieldCurrencyExchanged.setEditable(false);
-        jTextFieldCurrencyExchanged.setText("Enter Value");
+        jTextFieldAmountCurrencyExchanged.setEditable(false);
 
         jLabelToUnitCurrency.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         jLabelToUnitCurrency.setForeground(new java.awt.Color(255, 255, 255));
@@ -119,8 +118,8 @@ public class CurrencyConverter extends javax.swing.JFrame {
         jLabelUnitCurrencyEntered.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabelUnitCurrencyEntered.setText("Unit");
 
-        jTextFieldCurrencyExchanged1.setEditable(false);
-        jTextFieldCurrencyExchanged1.setText("Mexican Peso");
+        jTextFieldExchangeFromCurrencyTo.setEditable(false);
+        jTextFieldExchangeFromCurrencyTo.setText("Mexican Peso");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -130,21 +129,21 @@ public class CurrencyConverter extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelFromUnitCurrency)
-                    .addComponent(jTextFieldCurrencyToExchange, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldAmountCurrencyToExchange, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelUnitCurrencyEntered, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldCurrencyExchanged1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldExchangeFromCurrencyTo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBoxToUnitCurrency, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelToUnitCurrency))
-                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldCurrencyExchanged, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldAmountCurrencyExchanged, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelUnitCurrencyExchanged, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40))))
+                        .addGap(40, 40, 40))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelToUnitCurrency)
+                            .addComponent(jComboBoxExchangeToUnitCurrency, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelCurrencyConvertion)
@@ -171,12 +170,12 @@ public class CurrencyConverter extends javax.swing.JFrame {
                     .addComponent(jLabelToUnitCurrency))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBoxToUnitCurrency, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldCurrencyExchanged1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxExchangeToUnitCurrency, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldExchangeFromCurrencyTo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldCurrencyToExchange, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldCurrencyExchanged, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldAmountCurrencyToExchange, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldAmountCurrencyExchanged, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelUnitCurrencyExchanged, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -214,42 +213,53 @@ public class CurrencyConverter extends javax.swing.JFrame {
     private void jButtonRunCurrencyConverterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRunCurrencyConverterActionPerformed
 
         String convertionUnitCurrency;
-        convertionUnitCurrency = jComboBoxToUnitCurrency.getSelectedItem().toString();
+        convertionUnitCurrency = jComboBoxExchangeToUnitCurrency.getSelectedItem().toString();
+        String amountToExchange = jTextFieldAmountCurrencyToExchange.getText();
+        String amountExchanged = "";
 
-        if (jComboBoxToUnitCurrency.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null, "Select the desired type currency to be exchanged", "Select the currency", JOptionPane.INFORMATION_MESSAGE);
+        if (jComboBoxExchangeToUnitCurrency.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Select the desired type currency to be exchanged", "Select the exchange currency", JOptionPane.INFORMATION_MESSAGE);
         }
-        if (jTextFieldCurrencyToExchange.getText().equals("Enter Value") || jTextFieldCurrencyToExchange.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Type a currency value to be exchanged", "Type  value to exchange", JOptionPane.INFORMATION_MESSAGE);
-        }
-
-        if (convertionUnitCurrency.equals("Euro")) {
-            JOptionPane.showMessageDialog(this, "Selected Euro", "Currency selected", JOptionPane.ERROR_MESSAGE);
-        } else if (convertionUnitCurrency.equals("Sterling Pound")) {
-            JOptionPane.showMessageDialog(this, "Selected Sterling Pound", "Currency selected", JOptionPane.ERROR_MESSAGE);
-        } else if (convertionUnitCurrency.equals("USA Dollar")) {
-            JOptionPane.showMessageDialog(this, "Selected USA Dollar", "Currency selected", JOptionPane.ERROR_MESSAGE);
-        } else if (convertionUnitCurrency.equals("Japanise Yen")) {
-            JOptionPane.showMessageDialog(this, "Selected Japanise", "Currency selected", JOptionPane.ERROR_MESSAGE);
-        } else if (convertionUnitCurrency.equals("South-Korea Won")) {
-            JOptionPane.showMessageDialog(this, "Selected South-Korean Won", "Currency selected", JOptionPane.ERROR_MESSAGE);
+        if (jTextFieldAmountCurrencyToExchange.getText().equals("Enter Value") || jTextFieldAmountCurrencyToExchange.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Type a currency value to be exchanged", "Type an amount to exchange", JOptionPane.INFORMATION_MESSAGE);
         }
 
-        /*
-        if (actualCurrency.equals("Currency Convertion")) {
-            this.toBack();
-            CurrencyConverterNotUse cc = new CurrencyConverterNotUse();
-            cc.setVisible(true);
-            cc.toFront();
-        } else if (programSelected.equals("Temperature Convertion")) {
-            this.toBack();
-            temperatureConverter tc = new temperatureConverter();
-            tc.setVisible(true);
-            tc.toFront();
-        } else {
-            JOptionPane.showMessageDialog(this, "Select a convertion program to run", "Make a selection", JOptionPane.ERROR_MESSAGE);
+        for (int i = 0; i < amountToExchange.length(); i++) {
+            if (!Character.isDigit(amountToExchange.charAt(i))) {
+                JOptionPane.showMessageDialog(null, "Please type just numbers", "Not a valid amount", JOptionPane.ERROR_MESSAGE);
+                break;
+            }
         }
-         */
+
+        try {
+            switch (convertionUnitCurrency) {
+                case "Euro":
+                    amountExchanged = Double.toString(0.0475727 * Double.parseDouble(amountToExchange));
+                    break;
+                case "Sterling Pound":
+                    amountExchanged = Double.toString(0.040412689 * Double.parseDouble(amountToExchange));
+                    break;
+                case "USA Dollar":
+                    amountExchanged = Double.toString(0.051148033 * Double.parseDouble(amountToExchange));
+                    break;
+                case "Japanise Yen":
+                    System.out.println(convertionUnitCurrency);
+                    amountExchanged = Double.toString(6.490957 * Double.parseDouble(amountToExchange));
+                    break;
+                case "South-Korean Won":
+                    System.out.println(convertionUnitCurrency);
+                    amountExchanged = Double.toString(63.796529 * Double.parseDouble(amountToExchange));
+                    break;
+            }
+
+        } catch (NumberFormatException ex) {
+
+            System.out.println("Check your amount entered, it must contain only numbers");
+
+        }
+
+        jTextFieldAmountCurrencyExchanged.setText(amountExchanged);
+
     }//GEN-LAST:event_jButtonRunCurrencyConverterActionPerformed
 
     private void jLabelHelpCurrencyConvertionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHelpCurrencyConvertionMouseClicked
@@ -260,14 +270,14 @@ public class CurrencyConverter extends javax.swing.JFrame {
                 + "3-.Select a currency unit to be converted", "Help on usage", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jLabelHelpCurrencyConvertionMouseClicked
 
-    private void jComboBoxToUnitCurrencyItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxToUnitCurrencyItemStateChanged
-        int position = jComboBoxToUnitCurrency.getSelectedIndex();
+    private void jComboBoxExchangeToUnitCurrencyItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxExchangeToUnitCurrencyItemStateChanged
+        int position = jComboBoxExchangeToUnitCurrency.getSelectedIndex();
         jLabelUnitCurrencyExchanged.setText(unitsConvertion[position]);
-    }//GEN-LAST:event_jComboBoxToUnitCurrencyItemStateChanged
+    }//GEN-LAST:event_jComboBoxExchangeToUnitCurrencyItemStateChanged
 
-    private void jTextFieldCurrencyToExchangeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldCurrencyToExchangeFocusGained
-        jTextFieldCurrencyToExchange.setText("");
-    }//GEN-LAST:event_jTextFieldCurrencyToExchangeFocusGained
+    private void jTextFieldAmountCurrencyToExchangeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAmountCurrencyToExchangeFocusGained
+        jTextFieldAmountCurrencyToExchange.setText("");
+    }//GEN-LAST:event_jTextFieldAmountCurrencyToExchangeFocusGained
 
     /**
      * @param args the command line arguments
@@ -310,7 +320,7 @@ public class CurrencyConverter extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonPrevWindow;
     private javax.swing.JButton jButtonRunCurrencyConverter;
-    private javax.swing.JComboBox<String> jComboBoxToUnitCurrency;
+    private javax.swing.JComboBox<String> jComboBoxExchangeToUnitCurrency;
     private javax.swing.JLabel jLabelCurrencyConvertion;
     private javax.swing.JLabel jLabelFromUnitCurrency;
     private javax.swing.JLabel jLabelHelpCurrencyConvertion;
@@ -318,8 +328,8 @@ public class CurrencyConverter extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelUnitCurrencyEntered;
     private javax.swing.JLabel jLabelUnitCurrencyExchanged;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextFieldCurrencyExchanged;
-    private javax.swing.JTextField jTextFieldCurrencyExchanged1;
-    private javax.swing.JTextField jTextFieldCurrencyToExchange;
+    private javax.swing.JTextField jTextFieldAmountCurrencyExchanged;
+    private javax.swing.JTextField jTextFieldAmountCurrencyToExchange;
+    private javax.swing.JTextField jTextFieldExchangeFromCurrencyTo;
     // End of variables declaration//GEN-END:variables
 }

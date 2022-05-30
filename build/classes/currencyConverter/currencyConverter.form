@@ -47,25 +47,25 @@
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabelFromUnitCurrency" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldCurrencyToExchange" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAmountCurrencyToExchange" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                       <Component id="jLabelUnitCurrencyEntered" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
-                      <Component id="jTextFieldCurrencyExchanged1" min="-2" pref="200" max="-2" attributes="0"/>
+                      <Component id="jTextFieldExchangeFromCurrencyTo" min="-2" pref="200" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="73" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jComboBoxToUnitCurrency" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelToUnitCurrency" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextFieldCurrencyExchanged" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="jTextFieldAmountCurrencyExchanged" min="-2" pref="200" max="-2" attributes="0"/>
                               <Component id="jLabelUnitCurrencyExchanged" min="-2" pref="130" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabelToUnitCurrency" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboBoxExchangeToUnitCurrency" min="-2" pref="140" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -101,13 +101,13 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jComboBoxToUnitCurrency" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jTextFieldCurrencyExchanged1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="jComboBoxExchangeToUnitCurrency" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="jTextFieldExchangeFromCurrencyTo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldCurrencyToExchange" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jTextFieldCurrencyExchanged" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAmountCurrencyToExchange" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAmountCurrencyExchanged" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -125,15 +125,15 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="jTextFieldCurrencyToExchange">
+        <Component class="javax.swing.JTextField" name="jTextFieldAmountCurrencyToExchange">
           <Properties>
             <Property name="text" type="java.lang.String" value="Enter Value"/>
           </Properties>
           <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldCurrencyToExchangeFocusGained"/>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldAmountCurrencyToExchangeFocusGained"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBoxToUnitCurrency">
+        <Component class="javax.swing.JComboBox" name="jComboBoxExchangeToUnitCurrency">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="6">
@@ -142,12 +142,12 @@
                 <StringItem index="2" value="Euro"/>
                 <StringItem index="3" value="Sterling Pound"/>
                 <StringItem index="4" value="Japanise Yen"/>
-                <StringItem index="5" value="South-Korea Won "/>
+                <StringItem index="5" value="South-Korean Won"/>
               </StringArray>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboBoxToUnitCurrencyItemStateChanged"/>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboBoxExchangeToUnitCurrencyItemStateChanged"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -214,10 +214,9 @@
             <Property name="text" type="java.lang.String" value="From Currency Of"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldCurrencyExchanged">
+        <Component class="javax.swing.JTextField" name="jTextFieldAmountCurrencyExchanged">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="Enter Value"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelToUnitCurrency">
@@ -255,7 +254,7 @@
             <Property name="text" type="java.lang.String" value="Unit"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldCurrencyExchanged1">
+        <Component class="javax.swing.JTextField" name="jTextFieldExchangeFromCurrencyTo">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="text" type="java.lang.String" value="Mexican Peso"/>
