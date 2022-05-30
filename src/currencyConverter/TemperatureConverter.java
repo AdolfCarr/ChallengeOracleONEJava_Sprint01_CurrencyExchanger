@@ -12,7 +12,6 @@ public class TemperatureConverter extends javax.swing.JFrame {
 
     String[] unitsConvertion = {"Choose one...", "Celsius", "Fahrenheit", "Kelvin"};
 
-    
     /**
      * Creates new form currencyConverter
      */
@@ -21,9 +20,9 @@ public class TemperatureConverter extends javax.swing.JFrame {
         setIconImage(getIconImage());
         this.setLocationRelativeTo(null);
     }
-    
+
     @Override
-    public Image getIconImage (){
+    public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/alura_icon_IV.png"));
         return retValue;
     }
@@ -218,37 +217,82 @@ public class TemperatureConverter extends javax.swing.JFrame {
 
     private void jButtonRunTemperatureConverterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRunTemperatureConverterActionPerformed
 
-        String actualCurrency;
-        actualCurrency = jComboBoxFromUnitTemperature.getSelectedItem().toString();
+        String actualTemperatureUnit;
+        actualTemperatureUnit = jComboBoxFromUnitTemperature.getSelectedItem().toString();
 
-        String convertionUnitCurrency;
-        convertionUnitCurrency = jComboBoxToUnitTemperature.getSelectedItem().toString();
-        
-        if(jComboBoxFromUnitTemperature.getSelectedIndex()==0){           
-            JOptionPane.showMessageDialog(null, "Select the unit of temperature entered", "Select the unit",JOptionPane.INFORMATION_MESSAGE);           
+        String convertionUnitTemperature;
+        convertionUnitTemperature = jComboBoxToUnitTemperature.getSelectedItem().toString();
+
+        String temperatureToConvert = jTextFieldTemperatureToConvert.getText();
+
+        if (jComboBoxFromUnitTemperature.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Select the unit of temperature entered", "Select the unit", JOptionPane.INFORMATION_MESSAGE);
         }
-        if(jComboBoxToUnitTemperature.getSelectedIndex() == 0){           
-            JOptionPane.showMessageDialog(null, "Select the desired unit temperature to be converted", "Select the unit",JOptionPane.INFORMATION_MESSAGE);           
+        if (jComboBoxToUnitTemperature.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Select the desired unit temperature to be converted", "Select the unit", JOptionPane.INFORMATION_MESSAGE);
         }
-        if(jTextFieldTemperatureToConvert.getText().equals("Enter Value")||jTextFieldTemperatureToConvert.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Type a temperature value to be converted", "Type  value temperature to be converted",JOptionPane.INFORMATION_MESSAGE);
+        if (jTextFieldTemperatureToConvert.getText().equals("Enter Value") || jTextFieldTemperatureToConvert.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Type a temperature value to be converted", "Type  value temperature to be converted", JOptionPane.INFORMATION_MESSAGE);
         }
 
-        /*
-        if (actualCurrency.equals("Currency Convertion")) {
-            this.toBack();
-            currencyConverter cc = new currencyConverter();
-            cc.setVisible(true);
-            cc.toFront();
-        } else if (programSelected.equals("Temperature Convertion")) {
-            this.toBack();
-            temperatureConverter tc = new temperatureConverter();
-            tc.setVisible(true);
-            tc.toFront();
-        } else {
-            JOptionPane.showMessageDialog(this, "Select a convertion program to run", "Make a selection", JOptionPane.ERROR_MESSAGE);
+        for (int i = 0; i < temperatureToConvert.length(); i++) {
+            if (!Character.isDigit(temperatureToConvert.charAt(i)) && temperatureToConvert.charAt(i) != '-') {
+                JOptionPane.showMessageDialog(null, "Please type just numbers", "Not a valid temperauture", JOptionPane.ERROR_MESSAGE);
+                break;
+            }
         }
-         */
+
+        try {
+            if (actualTemperatureUnit.equals("Celsius")) {
+
+                switch (convertionUnitTemperature) {
+                    case "Celsius":
+                        temperatureToConvert = Double.toString(Double.parseDouble(temperatureToConvert));
+                        break;
+                    case "Fahrenheit":
+                        temperatureToConvert = Double.toString((1.8 * Double.parseDouble(temperatureToConvert)) + 32);
+                        break;
+                    case "Kelvin":
+                        temperatureToConvert = Double.toString(273.15 + Double.parseDouble(temperatureToConvert));
+                        break;
+                }
+
+            } else if (actualTemperatureUnit.equals("Fahrenheit")) {
+
+                switch (convertionUnitTemperature) {
+                    case "Celsius":
+                        temperatureToConvert = Double.toString((Double.parseDouble(temperatureToConvert) - 32) / 1.8);
+                        break;
+                    case "Fahrenheit":
+                        temperatureToConvert = Double.toString((Double.parseDouble(temperatureToConvert)));
+                        break;
+                    case "Kelvin":
+                        temperatureToConvert = Double.toString(273.15 + (Double.parseDouble(temperatureToConvert) - 32) / 1.8);
+                        break;
+                }
+
+            } else if (actualTemperatureUnit.equals("Kelvin")) {
+
+                switch (convertionUnitTemperature) {
+                    case "Celsius":
+                        temperatureToConvert = Double.toString(Double.parseDouble(temperatureToConvert) - 273.15);
+                        break;
+                    case "Fahrenheit":
+                        temperatureToConvert = Double.toString((1.8 * (Double.parseDouble(temperatureToConvert) - 273.15)) + 32);
+                        break;
+                    case "Kelvin":
+                        temperatureToConvert = Double.toString(Double.parseDouble(temperatureToConvert));
+                        break;
+                }
+            }
+        } catch (NumberFormatException ex) {
+            
+            System.out.println("Check your amount entered, it must contain only numbers");
+
+        }
+
+        jTextFieldTemperatureConverted.setText(temperatureToConvert);
+
     }//GEN-LAST:event_jButtonRunTemperatureConverterActionPerformed
 
     private void jLabelHelpTemperatureConvertionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHelpTemperatureConvertionMouseClicked
@@ -265,7 +309,7 @@ public class TemperatureConverter extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxFromUnitTemperatureItemStateChanged
 
     private void jComboBoxToUnitTemperatureItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxToUnitTemperatureItemStateChanged
-         int position = jComboBoxToUnitTemperature.getSelectedIndex();
+        int position = jComboBoxToUnitTemperature.getSelectedIndex();
         jLabelUnitTemperatureConverted.setText(unitsConvertion[position]);
     }//GEN-LAST:event_jComboBoxToUnitTemperatureItemStateChanged
 
